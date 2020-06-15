@@ -5,7 +5,7 @@ public class NodeMain
         // Training set, data set, and perceptron created
         ThreeSides[] dataSet = new ThreeSides[2];
         ThreeSides[] trainingSet = new ThreeSides[4];
-        Perceptron node = new Perceptron();
+        HypotenusePerceptron node = new HypotenusePerceptron();
 
         // Epochs sets how many training cycles perceptron goes through
         int epochs = 10000;
@@ -18,7 +18,7 @@ public class NodeMain
             {
                 // makes new triangle sides and gets the sides that aren't the hypotenuse
                 trainingSet[j] = new ThreeSides();
-                double[] inputs = {trainingSet[j].sides[0], trainingSet[j].sides[1]};
+                double[] inputs = {trainingSet[j].sides[0], trainingSet[j].sides[1], trainingSet[j].bias};
 
                 // perceptron is trained with inputs and their correct hypotunese while its guesses
                 // Depending on how far the guess is, the weights are adjusted accordingly
@@ -33,7 +33,7 @@ public class NodeMain
         {
             // Random data is created to test
             dataSet[i] = new ThreeSides();
-            double[] inputs = {dataSet[i].sides[0], dataSet[i].sides[1]}; 
+            double[] inputs = {dataSet[i].sides[0], dataSet[i].sides[1], dataSet[i].bias}; 
 
             // Actual hypotenuse along with guess is printed
             System.out.println(dataSet[i] + " Perceptron's guess(): " + node.guess(inputs, dataSet[i].hypotenuseSide));
