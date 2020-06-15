@@ -5,6 +5,7 @@ public class ThreeSides
     // all sides are declared and a random variable is initialized 
     double[] sides = new double[2];
     Random rand = new Random();
+    double bias = 1.0;
     double hypotenuseSide;
 
     public ThreeSides()
